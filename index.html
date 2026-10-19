@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Google OAuth application for personal automation.">
+    <title>Google OAuth for Personal Automation</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #17324d;
+        --muted: #5f7183;
+        --paper: #f7fbff;
+        --card: rgba(255, 255, 255, 0.88);
+        --line: #dbe8f2;
+        --accent: #2b7de9;
+        --accent-dark: #1558a8;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at 85% 12%, #d8ecff 0, transparent 30%),
+          linear-gradient(135deg, #f7fbff 0%, #eef6fb 100%);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        line-height: 1.6;
+      }
+
+      .shell { width: min(1100px, calc(100% - 40px)); margin: 0 auto; }
+
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 28px 0;
+      }
+
+      .brand { display: flex; align-items: center; gap: 12px; font-weight: 750; letter-spacing: -0.02em; }
+      .mark {
+        display: grid;
+        width: 40px;
+        height: 40px;
+        place-items: center;
+        border-radius: 13px;
+        color: white;
+        background: linear-gradient(145deg, #43a0ff, #2866c9);
+        box-shadow: 0 10px 24px rgba(43, 125, 233, 0.25);
+      }
+      nav a { color: var(--muted); text-decoration: none; font-size: 0.95rem; }
+      nav a:hover { color: var(--accent-dark); }
+
+      main { padding: 56px 0 80px; }
+      .hero { max-width: 780px; }
+      .eyebrow { margin: 0 0 16px; color: var(--accent-dark); font-size: 0.78rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; }
+      h1 { max-width: 760px; margin: 0; font-size: clamp(2.7rem, 7vw, 5.4rem); line-height: 0.98; letter-spacing: -0.065em; }
+      .lead { max-width: 690px; margin: 28px 0 0; color: var(--muted); font-size: clamp(1.1rem, 2vw, 1.35rem); }
+      .actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 32px; }
+      .button { display: inline-flex; align-items: center; gap: 8px; padding: 12px 18px; border-radius: 999px; color: white; background: var(--accent); text-decoration: none; font-weight: 700; box-shadow: 0 12px 24px rgba(43, 125, 233, 0.22); }
+      .button:hover { background: var(--accent-dark); }
+      .button.secondary { color: var(--ink); background: white; border: 1px solid var(--line); box-shadow: none; }
+
+      .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 72px; }
+      .card { padding: 24px; border: 1px solid var(--line); border-radius: 24px; background: var(--card); box-shadow: 0 18px 50px rgba(23, 50, 77, 0.07); }
+      .card h2 { margin: 0 0 10px; font-size: 1.15rem; letter-spacing: -0.02em; }
+      .card p { margin: 0; color: var(--muted); }
+      .card ul { margin: 12px 0 0; padding-left: 20px; color: var(--muted); }
+      .note { margin-top: 28px; padding: 20px 24px; border-left: 4px solid var(--accent); border-radius: 14px; background: rgba(255, 255, 255, 0.7); color: var(--muted); }
+
+      footer { padding: 26px 0 40px; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.92rem; }
+      footer a { color: var(--accent-dark); }
+
+      @media (max-width: 760px) {
+        .shell { width: min(100% - 28px, 640px); }
+        header { padding: 20px 0; }
+        main { padding-top: 42px; }
+        .grid { grid-template-columns: 1fr; margin-top: 48px; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <header>
+        <div class="brand"><span class="mark" aria-hidden="true">G</span><span>Personal Automation</span></div>
+        <nav aria-label="Primary navigation"><a href="privacy.html">Privacy policy</a></nav>
+      </header>
+
+      <main>
+        <section class="hero" aria-labelledby="page-title">
+          <p class="eyebrow">Google OAuth application</p>
+          <h1 id="page-title">Your Google data, for your own automation.</h1>
+          <p class="lead">This personal automation tool connects to Google services only after you explicitly authorize it. It is designed to work with your own Gmail, Analytics, Search Console, Site Verification, and Indexing data.</p>
+          <div class="actions">
+            <a class="button" href="privacy.html">Read the privacy policy <span aria-hidden="true">→</span></a>
+            <a class="button secondary" href="#access">How access works</a>
+          </div>
+        </section>
+
+        <section id="access" class="grid" aria-label="Access overview">
+          <article class="card">
+            <h2>Explicit authorization</h2>
+            <p>Google shows the consent screen before access is granted. No authorization means no access.</p>
+          </article>
+          <article class="card">
+            <h2>Your own data</h2>
+            <p>The application is intended for the account owner’s own information and personal workflows.</p>
+          </article>
+          <article class="card">
+            <h2>Focused services</h2>
+            <ul>
+              <li>Gmail</li>
+              <li>Google Analytics</li>
+              <li>Search Console, Site Verification, and Indexing</li>
+            </ul>
+          </article>
+        </section>
+
+        <p class="note">You can review or revoke this application’s access at any time from your Google Account’s connected-app permissions.</p>
+      </main>
+
+      <footer>
+        Personal automation tool · <a href="privacy.html">Privacy policy</a>
+      </footer>
+    </div>
+  </body>
+</html>
